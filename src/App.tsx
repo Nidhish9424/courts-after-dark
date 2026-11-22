@@ -848,7 +848,7 @@ function BookingPage({
     return d;
   });
   const [selectedDate, setSelectedDate] = useState(dateKey(dates[0]));
-  const [selectedSlot, setSelectedSlot] = useState("8:00 PM");
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   return (
     <>
       <TopBar title="Book your court" back onBack={onBack} />
@@ -877,7 +877,11 @@ function BookingPage({
               <button
                 key={value}
                 className={selectedDate === value ? "selected" : ""}
-                onClick={() => setSelectedDate(value)}
+                aria-pressed={selectedDate === value}
+                onClick={() => {
+                  setSelectedDate(value);
+                  setSelectedSlot(null);
+                }}
               >
                 <small>{date.toLocaleDateString("en-IN", { weekday: "short" })}</small>
                 <strong>{date.getDate()}</strong>
@@ -898,6 +902,7 @@ function BookingPage({
             <button
               disabled={i === 1}
               className={selectedSlot === slot ? "selected" : ""}
+              aria-pressed={selectedSlot === slot}
               onClick={() => setSelectedSlot(slot)}
               key={slot}
             >
@@ -929,7 +934,9 @@ function BookingPage({
             <div>
               <dt>Time</dt>
               <dd>
-                {selectedSlot} – {Number(selectedSlot.split(":")[0]) + 1}:00 PM
+                {selectedSlot
+                  ? `${selectedSlot} – ${Number(selectedSlot.split(":")[0]) + 1}:00 PM`
+                  : "Choose a time slot"}
               </dd>
             </div>
             <div>
@@ -948,7 +955,10 @@ function BookingPage({
         </section>
         <button
           className="primary-button large confirm-button"
-          onClick={() => onConfirm(selectedDate, selectedSlot)}
+          disabled={!selectedSlot}
+          onClick={() => {
+            if (selectedSlot) onConfirm(selectedDate, selectedSlot);
+          }}
         >
           Confirm & pay ₹{court.price + 20} <ChevronRight size={19} />
         </button>
