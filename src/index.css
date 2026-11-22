@@ -196,10 +196,12 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 .onboarding-shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     180deg,
     #06101be8 0%,
@@ -2359,8 +2361,8 @@ body,
 
 .onboarding-shade {
   background:
-    linear-gradient(90deg, #050505ee 0%, #05050591 42%, transparent 78%),
-    linear-gradient(0deg, #050505 0%, #05050522 70%);
+    linear-gradient(90deg, #050505e6 0%, #0505054d 42%, transparent 78%),
+    linear-gradient(0deg, #050505b8 0%, #05050510 70%);
 }
 .hero-overlay {
   background:
