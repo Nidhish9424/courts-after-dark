@@ -3041,3 +3041,19 @@ button:focus-visible {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* Keep the landing photo visible over every display size. */
+.onboarding-bg {
+  z-index: 0;
+  object-fit: cover;
+  object-position: 62% center;
+  opacity: 1;
+  filter: brightness(0.82) contrast(1.08) saturate(0.78);
+}
+
+.onboarding-shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, #050505cc 0%, #05050566 42%, transparent 76%),
+    linear-gradient(0deg, #050505e8 0%, #05050526 58%, #05050512 100%);
+}
