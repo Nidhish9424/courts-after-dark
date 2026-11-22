@@ -34,7 +34,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import heroImage from "./assets/night-court.jpg";
+const heroImage = `${import.meta.env.BASE_URL}night-court.jpg`;
 
 type Page =
   | "home"
