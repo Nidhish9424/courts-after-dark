@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Courts After Dark (Vite + Edge)",
+      "type": "pwa-msedge",
+      "request": "launch",
+      "url": "http://localhost:8443",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Start Vite dev server"
+    }
+  ]
+}

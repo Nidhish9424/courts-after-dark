@@ -1,0 +1,11 @@
+{
+  "title": "Courts After Dark",
+  "description": "Discover and book evening sports courts across multiple sports, check lighting and availability, manage reservations, and access safety information for worry-free play after dark.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
